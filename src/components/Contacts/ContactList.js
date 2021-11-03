@@ -1,9 +1,9 @@
 import { Component } from 'react/cjs/react.production.min';
-
+import s from './ContactList.module.css';
 class ContactList extends Component {
   render() {
     return (
-      <ul>
+      <ul className={s.ContactList}>
         {this.props.contacts
           .filter(cont =>
             cont.name.toLowerCase().includes(this.props.filter.toLowerCase()),
@@ -11,7 +11,12 @@ class ContactList extends Component {
           .map(contact => (
             <li key={contact.id} id={contact.id}>
               {contact.name}: {contact.number}
-              <button onClick={this.props.onDeleteBtn}>delete</button>
+              <button
+                className={s.ContactListBtn}
+                onClick={this.props.onDeleteBtn}
+              >
+                delete
+              </button>
             </li>
           ))}
       </ul>

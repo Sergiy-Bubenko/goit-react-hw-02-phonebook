@@ -1,5 +1,5 @@
 import { Component } from 'react/cjs/react.production.min';
-
+import s from './ContactForm.module.css';
 class ContactForm extends Component {
   render() {
     return (
@@ -30,7 +30,9 @@ class ContactForm extends Component {
           />
         </label>
         <br />
-        <button type="submit">Add contact</button>
+        <button className={s.btn} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

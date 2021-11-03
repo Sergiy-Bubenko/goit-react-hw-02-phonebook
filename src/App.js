@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import s from './App.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
 import ContactForm from './components/ContactForm/ContactForm';
@@ -22,7 +22,6 @@ class App extends Component {
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
-
     this.setState({
       [name]: value,
     });
@@ -30,14 +29,12 @@ class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     if (
       this.state.contacts.find(
         contact => contact.name.toLowerCase() === this.state.name.toLowerCase(),
       )
-    ) {
+    )
       return alert(`${this.state.name} is already in contacts.`);
-    }
 
     this.setState({
       contacts: [
@@ -67,7 +64,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={s.App}>
         <h1>Phonebook</h1>
         <ContactForm
           state={this.state}
